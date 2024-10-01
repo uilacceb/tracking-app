@@ -1,14 +1,13 @@
-const defaultItems = [
-  { name: "good mood", packed: true },
-  { name: "passport", packed: false },
-  { name: "phone charger", packed: false },
-];
+import { useState } from "react";
+import { initialItems } from "../lib/constants";
 
 const ItemList = () => {
+  const [itemList, setItemList] = useState(initialItems);
+
   return (
     <ul>
-      {defaultItems.map((item, index) => {
-        return <Item key={index} item={item} />;
+      {itemList.map((item, index) => {
+        return <Item key={index + 1} item={item} />;
       })}
     </ul>
   );
@@ -21,6 +20,7 @@ const Item = ({ item }) => {
         <input type="checkbox" checked={item.packed} />
         {item.name}
       </label>
+      <button>❌</button>
     </li>
   );
 };
