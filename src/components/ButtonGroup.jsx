@@ -1,10 +1,19 @@
+//put this outside because we don't need this array to recreated when the page rerenders every time
+const buttons = [
+  "Mark all as complete",
+  "Mark all as incomplete",
+  "Reset to initial",
+  "Remove all items",
+];
+
 const ButtonGroup = () => {
   return (
     <section className="button-group">
-      <Button className="btn btn--secondary" label="Mark all as complete" />
-      <Button className="btn btn--secondary" label="Mark all as incomplete" />
-      <Button className="btn btn--secondary" label="Reset to initial" />
-      <Button className="btn btn--secondary" label="Remove all items" />
+      {buttons.map((text, index) => {
+        return (
+          <Button key={index} className="btn btn--secondary" label={text} />
+        );
+      })}
     </section>
   );
 };
