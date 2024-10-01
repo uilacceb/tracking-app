@@ -1,9 +1,13 @@
-
+import Counter from "./Counter";
+import Logo from "./Logo"
 
 const Header = () => {
   return (
-    <div>Header</div>
-  )
-}
+    <header>
+      <Logo />
+      <Counter />
+    </header>
+  );
+};
 
-export default Header
+export default Header;
