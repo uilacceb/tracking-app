@@ -1,10 +1,4 @@
-//put this outside because we don't need this array to recreated when the page rerenders every time
-const buttons = [
-  "Mark all as complete",
-  "Mark all as incomplete",
-  "Reset to initial",
-  "Remove all items",
-];
+import { buttons } from "../lib/constants";
 
 const ButtonGroup = () => {
   return (
