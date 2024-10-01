@@ -1,9 +1,8 @@
-import { useState } from "react";
-import { initialItems } from "../lib/constants";
+import { useContext } from "react";
+import { itemContext } from "../lib/itemContext";
 
 const ItemList = () => {
-  const [itemList, setItemList] = useState(initialItems);
-
+  const { itemList } = useContext(itemContext);
   return (
     <ul>
       {itemList.map((item, index) => {
