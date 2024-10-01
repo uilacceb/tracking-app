@@ -2,7 +2,7 @@
 
 const BackgroundHeading = () => {
   return (
-    <div>BackgroundHeading</div>
+   <h1>Tracking</h1>
   )
 }
 
