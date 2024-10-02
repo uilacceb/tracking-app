@@ -34,7 +34,6 @@ const AddItemForm = () => {
         onChange={(e) => setItemText(e.target.value)}
         value={itemText}
         placeholder="toothbrush..."
-        autoFocus
       />
       <Button label="Add to list" className="btn" />
     </form>

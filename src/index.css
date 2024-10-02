@@ -304,3 +304,49 @@ footer {
   opacity: 0.5;
   margin-top: 12px;
 }
+
+@media only screen and (max-width: 680px) {
+  html,
+  body {
+    height: 100%;
+    margin: 0;
+  }
+
+  #root {
+    padding: 10px;
+    height: 100%;
+  }
+
+  main {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  header {
+    flex-shrink: 0;
+    padding: 10px;
+    align-items: flex-start;
+  }
+
+  .item-list {
+    flex-grow: 1;
+    overflow-y: auto;
+  }
+
+  .sidebar {
+    flex-shrink: 0;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  footer {
+    font-size: 10px;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 20px;
+  }
+}
