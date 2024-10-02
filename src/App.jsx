@@ -13,7 +13,12 @@ function App() {
   return (
     <>
       <BackgroundHeading />
-      <itemContext.Provider value={{ itemList, setItemList }}>
+      <itemContext.Provider
+        value={{
+          itemList,
+          setItemList,
+        }}
+      >
         <main>
           <Header />
           <ItemList />

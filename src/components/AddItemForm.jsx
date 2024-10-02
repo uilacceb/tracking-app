@@ -1,4 +1,4 @@
-import { useContext,  useState } from "react";
+import { useContext, useState } from "react";
 import { Button } from "./ButtonGroup";
 import { itemContext } from "../lib/itemContext";
 
@@ -15,6 +15,7 @@ const AddItemForm = () => {
       return;
     }
     const newItem = {
+      id: new Date().getTime(),
       name: itemText,
       packed: false,
     };
