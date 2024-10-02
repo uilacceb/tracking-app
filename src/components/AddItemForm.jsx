@@ -1,17 +1,18 @@
-import { useContext, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import { Button } from "./ButtonGroup";
 import { itemContext } from "../lib/itemContext";
 
 const AddItemForm = () => {
   const [itemText, setItemText] = useState("");
   const { setItemList, itemList } = useContext(itemContext);
+  const inputRef = useRef();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(itemText);
     if (itemText.trim() === "") {
       alert("Item cannot be empty");
-
+      inputRef.current.focus();
       return;
     }
     const newItem = {
@@ -28,9 +29,11 @@ const AddItemForm = () => {
     <form onSubmit={handleSubmit}>
       <h2>Add an item</h2>
       <input
+        ref={inputRef}
         type="text"
         onChange={(e) => setItemText(e.target.value)}
         value={itemText}
+        placeholder="toothbrush..."
         autoFocus
       />
       <Button label="Add to list" className="btn" />
