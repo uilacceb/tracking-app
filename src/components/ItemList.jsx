@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useMemo, useState } from "react";
 import { itemContext } from "../lib/itemContext";
 import EmptyView from "./EmptyView";
 import Select from "react-select";
@@ -12,16 +12,20 @@ const ItemList = () => {
     { value: "unpacked", label: "Sort by unpacked" },
   ];
 
-  const sortedList = [...itemList].sort((a, b) => {
-    if (sortBy === "packed") {
-      return b.packed - a.packed;
-    }
-    if (sortBy === "unpacked") {
-      return a.packed - b.packed;
-    }
+  const sortedList = useMemo(
+    () =>
+      [...itemList].sort((a, b) => {
+        if (sortBy === "packed") {
+          return b.packed - a.packed;
+        }
+        if (sortBy === "unpacked") {
+          return a.packed - b.packed;
+        }
 
-    return;
-  });
+        return;
+      }),
+    [itemList, sortBy]
+  );
 
   return (
     <ul className="item-list">
