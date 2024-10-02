@@ -1,13 +1,18 @@
 import { useContext } from "react";
 import { itemContext } from "../lib/itemContext";
+import EmptyView from "./EmptyView";
 
 const ItemList = () => {
   const { itemList } = useContext(itemContext);
   return (
-    <ul>
-      {itemList.map((item, id) => {
-        return <Item key={id} item={item} />;
-      })}
+    <ul className="item-list">
+      {itemList.length === 0 ? (
+        <EmptyView />
+      ) : (
+        itemList.map((item, id) => {
+          return <Item key={id} item={item} />;
+        })
+      )}
     </ul>
   );
 };
