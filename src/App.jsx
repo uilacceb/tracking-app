@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import BackgroundHeading from "./components/BackgroundHeading";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
@@ -8,7 +8,13 @@ import { initialItems } from "./lib/constants";
 import { itemContext } from "./lib/itemContext";
 
 function App() {
-  const [itemList, setItemList] = useState(initialItems);
+  const itemFromLocalStorage = JSON.parse(localStorage.getItem("itemList"));
+  const [itemList, setItemList] = useState(
+    itemFromLocalStorage || initialItems
+  ); // if itemFromLocalStorage is null, it will return the initialItems
+  useEffect(() => {
+    localStorage.setItem("itemList", JSON.stringify(itemList));
+  }, [itemList]);
 
   return (
     <>

@@ -132,7 +132,7 @@ label > input {
   border: 1px solid #d3d3d3;
   border-radius: 2px;
   outline: 2px solid transparent;
-  transition-duration: 0.3s;
+  transition-duration: 0.1s;
   background-color: #fff;
   cursor: pointer;
   margin-right: 13px;
