@@ -1,9 +1,8 @@
-import { useContext } from "react";
 import { initialItems } from "../lib/constants";
-import { itemContext } from "../lib/itemContext";
+import { useItemsContext } from "../lib/hooks";
 
 const ButtonGroup = () => {
-  const { itemList, setItemList } = useContext(itemContext);
+  const { itemList, setItemList } = useItemsContext();
   const handleMarkComplete = () => {
     const updatedList = itemList.map((item) => {
       return { ...item, packed: true }; // Return a new object with packed set to false

@@ -5,7 +5,9 @@ import Header from "./components/Header";
 import ItemList from "./components/ItemList";
 import Sidebar from "./components/Sidebar";
 import { initialItems } from "./lib/constants";
-import { itemContext } from "./lib/itemContext";
+import { itemContext } from "./context/itemContext";
+import Logo from "./components/Logo";
+import Counter from "./components/Counter";
 
 function App() {
   const itemFromLocalStorage = JSON.parse(localStorage.getItem("itemList"));
@@ -19,18 +21,24 @@ function App() {
   return (
     <>
       <BackgroundHeading />
-      <itemContext.Provider
-        value={{
-          itemList,
-          setItemList,
-        }}
-      >
-        <main>
-          <Header />
+
+      <main>
+        <itemContext.Provider
+          value={{
+            itemList,
+            setItemList,
+          }}
+        >
+          <Header>
+            <Logo />
+            <Counter />
+          </Header>
+
           <ItemList />
           <Sidebar />
-        </main>
-      </itemContext.Provider>
+        </itemContext.Provider>
+      </main>
+
       <Footer />
     </>
   );

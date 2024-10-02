@@ -1,8 +1,7 @@
-import { useContext } from "react";
-import { itemContext } from "../lib/itemContext";
+import { useItemsContext } from "../lib/hooks";
 
 const Counter = () => {
-  const { itemList } = useContext(itemContext);
+  const { itemList } = useItemsContext();
   const newList = itemList.filter((item) => item.packed === true);
 
   return (

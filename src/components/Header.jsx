@@ -1,13 +1,5 @@
-import Counter from "./Counter";
-import Logo from "./Logo"
-
-const Header = () => {
-  return (
-    <header>
-      <Logo />
-      <Counter />
-    </header>
-  );
+const Header = ({ children }) => {
+  return <header>{children}</header>;
 };
 
 export default Header;

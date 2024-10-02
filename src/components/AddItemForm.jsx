@@ -1,10 +1,10 @@
-import { useContext, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { Button } from "./ButtonGroup";
-import { itemContext } from "../lib/itemContext";
+import { useItemsContext } from "../lib/hooks";
 
 const AddItemForm = () => {
   const [itemText, setItemText] = useState("");
-  const { setItemList, itemList } = useContext(itemContext);
+  const { setItemList, itemList } = useItemsContext();
   const inputRef = useRef();
 
   const handleSubmit = (e) => {
