@@ -9,6 +9,7 @@ import { itemContext } from "./lib/itemContext";
 
 function App() {
   const [itemList, setItemList] = useState(initialItems);
+
   return (
     <>
       <BackgroundHeading />
