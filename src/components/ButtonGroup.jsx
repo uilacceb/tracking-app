@@ -4,24 +4,24 @@ import { itemContext } from "../lib/itemContext";
 
 const ButtonGroup = () => {
   const { itemList, setItemList } = useContext(itemContext);
-  const setComplete = () => {
+  const handleMarkComplete = () => {
     const updatedList = itemList.map((item) => {
       return { ...item, packed: true }; // Return a new object with packed set to false
     });
     setItemList(updatedList);
     console.log(updatedList);
   };
-  const setImcomplete = () => {
+  const handleMarkIncomplete = () => {
     const updatedList = itemList.map((item) => {
       return { ...item, packed: false }; // Return a new object with packed set to false
     });
     setItemList(updatedList);
     console.log(updatedList);
   };
-  const resetToInitial = () => {
+  const handleResetToInitial = () => {
     setItemList(initialItems);
   };
-  const removeAllItems = () => {
+  const handleRemoveAllItems = () => {
     setItemList([]);
   };
   return (
@@ -34,22 +34,22 @@ const ButtonGroup = () => {
       <Button
         className="btn btn--secondary"
         label="Mark all as complete"
-        onClick={setComplete}
+        onClick={handleMarkComplete}
       ></Button>
       <Button
         className="btn btn--secondary"
         label="Mark all as incomplete"
-        onClick={setImcomplete}
+        onClick={handleMarkIncomplete}
       ></Button>
       <Button
         className="btn btn--secondary"
         label="Reset to initial"
-        onClick={resetToInitial}
+        onClick={handleResetToInitial}
       ></Button>
       <Button
         className="btn btn--secondary"
         label="Remove all items"
-        onClick={removeAllItems}
+        onClick={handleRemoveAllItems}
       ></Button>
     </section>
   );
